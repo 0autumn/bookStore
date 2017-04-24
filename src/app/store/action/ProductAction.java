@@ -2,10 +2,10 @@ package app.store.action;
 
 import java.util.List;
 
-import app.store.model.entity.Book;
-import app.store.model.service.BookService;
+import app.store.model.entity.Product;
+import app.store.model.service.ProductService;
 
-public class BookAction extends GenericActionSupport<Book, BookService> {
+public class ProductAction extends GenericActionSupport<Product, ProductService> {
 
 	private static final long serialVersionUID = 1L;
 	
@@ -28,7 +28,7 @@ public class BookAction extends GenericActionSupport<Book, BookService> {
 		this.categoryId = categoryId;
 	}
 		
-	public List<Book> getBooks()
+	public List<Product> getBooks()
 	{
 		if (this.getKeyword() != null && !this.getKeyword().isEmpty()){
 			return this.getService().searchBookFor(this.getKeyword());

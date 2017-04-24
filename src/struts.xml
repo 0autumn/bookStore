@@ -27,15 +27,15 @@
        <result>/WEB-INF/view/menu.jsp</result>
      </action>
      
-     <action name="bookList" class="bookAction">
+     <action name="bookList" class="productAction">
        <result>/index.jsp?page=books</result>
      </action>
      
-     <action name="books" class="bookAction">
+     <action name="books" class="productAction">
        <result>/WEB-INF/view/books.jsp</result>
      </action>
      
-     <action name="search" class="bookAction">
+     <action name="search" class="productAction">
        <result>/index.jsp?page=books</result>
      </action>
      
@@ -65,10 +65,7 @@
        <result name="error">/index.jsp?page=error</result>
      </action>
      
-     <action name="feedSampleData" class="feedSampleDataAction">
-       <result>/index.jsp</result>
-       <result name="error">/index.jsp?page=error</result>
-     </action>
+    
      
    </package>
  </struts> 

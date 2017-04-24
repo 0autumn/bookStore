@@ -4,7 +4,7 @@ public class OrderItem extends Entity {
 	
 	private int quantity;
 	private Order order;
-	private Book book;
+	private Product product;
 
 	public OrderItem() {
 		super(0);
@@ -28,12 +28,12 @@ public class OrderItem extends Entity {
 		//order.addOrderItem(this);
 	}
 
-	public Book getBook() {
-		return book;
+	public Product getBook() {
+		return product;
 	}
 
-	public void setBook(Book book) {
-		this.book = book;
+	public void setBook(Product book) {
+		this.product = book;
 	}
 
 }

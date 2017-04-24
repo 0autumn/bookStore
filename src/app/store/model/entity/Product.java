@@ -1,16 +1,16 @@
 package app.store.model.entity;
 
-public class Book extends Entity {
+public class Product extends Entity {
 
 	private String name;
 	private float price;
 	private String coverImageFile;
 	private Category category;
 	
-	public Book(){
+	public Product(){
 		super(0);
 	}
-	public Book(String name, float price, String imageFile){
+	public Product(String name, float price, String imageFile){
 		this();
 		this.setName(name);
 		this.setPrice(price);

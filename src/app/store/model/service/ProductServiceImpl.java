@@ -3,31 +3,31 @@ package app.store.model.service;
 import java.util.ArrayList;
 import java.util.List;
 
-import app.store.model.entity.Book;
+import app.store.model.entity.Product;
 
-public class BookServiceImpl extends ServiceSupport<Book> implements
-		BookService {
+public class ProductServiceImpl extends ServiceSupport<Product> implements
+		ProductService {
 
 	@Override
-	public Book getBook(long id) {
+	public Product getBook(long id) {
 		return this.getDao().get(id);
 	}
 
 	@Override
-	public List<Book> getBooksByCategoryId(long id) {
+	public List<Product> getBooksByCategoryId(long id) {
 		return this.getDao().findBy("category.id", id);
 	}
 
 	@Override
-	public List<Book> getAllBooks() {
+	public List<Product> getAllBooks() {
 		return this.getDao().findAll();
 	}
 
 	@Override
-	public List<Book> searchBookFor(String keyword) {
-		List<Book> resultBooks = new ArrayList<Book>();
-		List<Book> allBooks = this.getAllBooks();
-		for (Book book : allBooks){
+	public List<Product> searchBookFor(String keyword) {
+		List<Product> resultBooks = new ArrayList<Product>();
+		List<Product> allBooks = this.getAllBooks();
+		for (Product book : allBooks){
 			if (book.getName().contains(keyword) || 
 				book.getCategory().getName().contains(keyword) || 
 				book.getCategory().getDescription().contains(keyword)) {

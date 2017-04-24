@@ -25,6 +25,6 @@
   <mapping resource="app/store/model/entity/User.hbm.xml"/>
   <mapping resource="app/store/model/entity/OrderItem.hbm.xml"/>
   <mapping resource="app/store/model/entity/Category.hbm.xml"/>
-  <mapping resource="app/store/model/entity/Book.hbm.xml"/>
+  <mapping resource="app/store/model/entity/Product.hbm.xml"/>
  </session-factory>
 </hibernate-configuration>

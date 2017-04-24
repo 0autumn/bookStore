@@ -10,7 +10,7 @@
   <property column="creation_date" generated="never" lazy="false"
    name="creationDate" not-null="true"/>
   <property name="quantity" generated="never" lazy="false" not-null="true"/>
-  <many-to-one class="Book" column="book_id" name="book" not-null="true"/>
+  <many-to-one class="Product" column="book_id" name="book" not-null="true"/>
   <many-to-one cascade="all" class="Order" column="order_id"
    name="order" not-null="true"/>
  </class>

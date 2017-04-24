@@ -4,11 +4,11 @@ import java.util.Map;
 
 import com.opensymphony.xwork2.ActionContext;
 
-import app.store.model.entity.Book;
+import app.store.model.entity.Product;
 import app.store.model.entity.Order;
 import app.store.model.entity.OrderItem;
 import app.store.model.entity.User;
-import app.store.model.service.BookService;
+import app.store.model.service.ProductService;
 import app.store.model.service.OrderService;
 import app.store.model.service.ShoppingCart;
 
@@ -18,8 +18,7 @@ public class ShoppingAction extends GenericActionSupport<Order, OrderService>{
 	
 	private long[] bookId;
 	private int[] quantity;
-	
-	private BookService bookService;
+	private ProductService productService;
 	
 	public long[] getBookId() {
 		return bookId;
@@ -37,13 +36,14 @@ public class ShoppingAction extends GenericActionSupport<Order, OrderService>{
 		this.quantity = quantity;
 	}
 		
-	public void setBookService(BookService bookService) {
-		this.bookService = bookService;
+
+	public void setProductService(ProductService productService) {
+		this.productService = productService;
 	}
-	
-	
+
 	public String addToCart() throws Exception {
-		Book book = bookService.getBook(this.getBookId()[0]);
+	
+		Product book = productService.getBook(this.getBookId()[0]);
 		Map<String, Object> session = ActionContext.getContext().getSession();
 		ShoppingCart cart = (ShoppingCart) session.get("cart");
 		if (cart == null) {

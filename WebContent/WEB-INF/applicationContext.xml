@@ -35,14 +35,14 @@
 	</bean>
 	
 	<!-- 图书管理的Dao,Service,Action -->
-	<bean id="bookDao" class="app.store.model.dao.BookDaoHibernateImpl">
+	<bean id="productDao" class="app.store.model.dao.ProductDaoHibernateImpl">
 	  <property name="sessionFactory" ref="sessionFactory"/>
 	</bean>
-	<bean id="bookService" class="app.store.model.service.BookServiceImpl">
-	  <property name="dao" ref="bookDao"/>
+	<bean id="productService" class="app.store.model.service.ProductServiceImpl">
+	  <property name="dao" ref="productDao"/>
 	</bean>
-	<bean id="bookAction" class="app.store.action.BookAction" scope="prototype">
-	  <property name="service" ref="bookService"/>
+	<bean id="productAction" class="app.store.action.ProductAction" scope="prototype">
+	  <property name="service" ref="productService"/>
 	</bean>
 	
 	<!-- 订单管理的Dao,Service -->
@@ -55,20 +55,10 @@
 	
 	<!-- 购买与结算的Action -->
 	<bean id="shoppingAction" class="app.store.action.ShoppingAction" scope="prototype">
-	  <property name="bookService" ref="bookService"/>
+	  <property name="productService" ref="productService"/>
 	  <property name="service" ref="orderService"/>
 	</bean>
 	
-	<!-- 系统管理的Service,Action -->
-	<bean id="systemService" class="app.store.model.service.SystemServiceImpl">
-	  <property name="bookDao" ref="bookDao"/>
-	  <property name="categoryDao" ref="categoryDao"/>
-	  <property name="orderDao" ref="orderDao"/>
-	  <property name="dao" ref="userDao"/>
-	  <property name="feedCode" value="123456" />
-	</bean>
-	<bean id="feedSampleDataAction" class="app.store.action.FeedSampleDataAction" scope="prototype">
-	  <property name="service" ref="systemService"/>	  
-	</bean>
+
 	
 </beans>

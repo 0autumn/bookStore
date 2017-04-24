@@ -25,7 +25,7 @@
       </s:if>
        | 
       <a href="#">用户FAQ</a>
-    <s:form action="search" theme="simple" method="get" cssClass="search-bar">
+    <s:form action="search" theme="simple" method="post" cssClass="search-bar">
   	  <p>
   	    <s:textfield name="keyword"/>
   	    <s:submit value="搜索"/>
