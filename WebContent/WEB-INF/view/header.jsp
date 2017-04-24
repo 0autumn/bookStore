@@ -3,7 +3,7 @@
 <%@ taglib prefix="s" uri="/struts-tags"%>
 <div id="header" class="clearfix">
   <h1>
-    <s:a href="index.jsp" includeContext="true"><img class="logo" src="images/logo.png" alt="叮当网">叮当网上书店</s:a>
+    <img class="logo" src="images/logo.png" alt="叮叮网"><s:a href="index.jsp" includeContext="true">叮叮网店</s:a>
   </h1>
   <div id="tool-bar">
     <s:if test="#session.user==null">

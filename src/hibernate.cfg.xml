@@ -7,7 +7,7 @@
   <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
   <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/book_store</property>
   <property name="hibernate.connection.username">root</property>
-  <property name="hibernate.connection.password">123456</property>
+  <property name="hibernate.connection.password">123</property>
   <property name="hibernate.connection.pool_size">5</property>
   <!-- SQL方言 -->
   <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
@@ -21,10 +21,10 @@
   <!-- 当前会话上下文类为线程 -->
   <property name="hibernate.current_session_context_class">thread</property>
   <!-- 映射文件资源 -->
-  <mapping resource="app/bookstore/model/entity/Order.hbm.xml"/>
-  <mapping resource="app/bookstore/model/entity/User.hbm.xml"/>
-  <mapping resource="app/bookstore/model/entity/OrderItem.hbm.xml"/>
-  <mapping resource="app/bookstore/model/entity/Category.hbm.xml"/>
-  <mapping resource="app/bookstore/model/entity/Book.hbm.xml"/>
+  <mapping resource="app/store/model/entity/Order.hbm.xml"/>
+  <mapping resource="app/store/model/entity/User.hbm.xml"/>
+  <mapping resource="app/store/model/entity/OrderItem.hbm.xml"/>
+  <mapping resource="app/store/model/entity/Category.hbm.xml"/>
+  <mapping resource="app/store/model/entity/Book.hbm.xml"/>
  </session-factory>
 </hibernate-configuration>
