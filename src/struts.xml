@@ -34,7 +34,9 @@
      <action name="books" class="productAction">
        <result>/WEB-INF/view/books.jsp</result>
      </action>
-     
+     <action name="productMsg" class="productAction">
+      <result>/index.jsp?page=productMsg</result>
+     </action>
      <action name="search" class="productAction">
        <result>/index.jsp?page=books</result>
      </action>

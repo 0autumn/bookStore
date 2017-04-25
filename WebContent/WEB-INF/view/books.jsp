@@ -7,10 +7,10 @@
   <s:iterator value="books">
 	<li>
 	  <s:if test="coverImageFile!=null">
-	    <img class="book" src="images/<s:property value="coverImageFile"/>" />
+	   <a href="productMsg"> <img class="book" src="images/<s:property value="coverImageFile"/>" /></a>
 	  </s:if>
 	  <s:else>
-	    <img class="book" src="images/book.png"/>
+	  <a href="productMsg"> <img class="book" src="images/book.png"/></a>
 	  </s:else>
 	  <p>书名：<strong><s:property value="name"/></strong></p>
 	  <p>价格：<strong><s:property value="price"/></strong></p>
