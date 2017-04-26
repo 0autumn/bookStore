@@ -5,7 +5,7 @@
  <session-factory>
   <!-- 数据库连接配置 -->
   <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
-  <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/book_store</property>
+  <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/store</property>
   <property name="hibernate.connection.username">root</property>
   <property name="hibernate.connection.password">123</property>
   <property name="hibernate.connection.pool_size">5</property>
@@ -26,5 +26,6 @@
   <mapping resource="app/store/model/entity/OrderItem.hbm.xml"/>
   <mapping resource="app/store/model/entity/Category.hbm.xml"/>
   <mapping resource="app/store/model/entity/Product.hbm.xml"/>
+  <mapping resource="app/store/model/entity/ProductImage.hbm.xml"/>
  </session-factory>
 </hibernate-configuration>

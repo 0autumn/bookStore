@@ -11,5 +11,6 @@
    name="creationDate" not-null="true"/>
   <property generated="never" lazy="false" length="50" name="name" not-null="true"/>
   <property generated="never" lazy="false" length="120" name="description"/>
+  <property generated="never" lazy="false" length="4" name="isDel" not-null="true"/>
  </class>
 </hibernate-mapping>
