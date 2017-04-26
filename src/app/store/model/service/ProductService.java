@@ -10,12 +10,12 @@ public interface ProductService {
 	public Product getBook(long id);
 	
 
-	public List<Product> getBooksByCategoryId(long id);
+	public List<Product> getBooksByCategoryId(long id,Integer page,Integer a_page_num);
 	
 
 	public List<Product> getAllBooks();
 	
 
-	public List<Product> searchBookFor(String keyword);
+	public List<Product> searchBookFor(String keyword,Integer page,Integer a_page_num);
 	
 }

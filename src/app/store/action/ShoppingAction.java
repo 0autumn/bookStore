@@ -42,7 +42,7 @@ public class ShoppingAction extends GenericActionSupport<Order, OrderService>{
 	}
 
 	public String addToCart() throws Exception {
-	
+	System.out.println();
 		Product book = productService.getBook(this.getBookId()[0]);
 		Map<String, Object> session = ActionContext.getContext().getSession();
 		ShoppingCart cart = (ShoppingCart) session.get("cart");
@@ -87,11 +87,11 @@ public class ShoppingAction extends GenericActionSupport<Order, OrderService>{
 		ShoppingCart cart = (ShoppingCart) session.get("cart");
 		
 		if (user == null) {
-			this.addActionMessage("Ҫ���㣬���ȵ�¼!");
+			this.addActionMessage("你没有登录呢0.0");
 			return INPUT;
 		}
 		if (cart == null) {
-			this.addActionError("���ﳵΪ�գ��޷����㣡");
+			this.addActionError("购物车里面并无货物！");
 			return ERROR;
 		}
 		

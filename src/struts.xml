@@ -5,9 +5,24 @@
   "http://struts.apache.org/dtds/struts-2.0.dtd">
  
  <struts>
-   <constant name="struts.objectFactory" value="spring"/>
+  <constant name="struts.objectFactory" value="spring"/>
    
-   <package name="default" extends="struts-default">
+  <package name="default" extends="struts-default">
+      <interceptors>
+        <interceptor name="login" class="myInterceptor"/>
+
+            <interceptor-stack name="myStack">
+	
+	                <interceptor-ref name="login"/>
+	
+	                <interceptor-ref name="defaultStack"/>
+
+      </interceptor-stack>
+   </interceptors>
+<default-interceptor-ref name="myStack"/> 
+ <global-results>
+    <result name="false" type="redirect" >/indexEasyUi.jsp</result>
+ </global-results>
    
      <action name="register" class="userAction" method="register">
        <result name="input">/index.jsp?page=register</result>
@@ -34,7 +49,9 @@
      <action name="books" class="productAction">
        <result>/WEB-INF/view/books.jsp</result>
      </action>
-     
+     <action name="productMsg" class="productAction" >
+      <result>/index.jsp?page=productMsg</result>
+     </action>
      <action name="search" class="productAction">
        <result>/index.jsp?page=books</result>
      </action>
