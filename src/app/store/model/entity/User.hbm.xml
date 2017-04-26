@@ -19,6 +19,7 @@
    name="loginTimes" not-null="true"/>
   <property column="last_login_date" generated="never" lazy="false"
    name="lastLoginDate" not-null="true"/>
+   <property generated="never" lazy="false" length="4" name="isDel" not-null="true"/>
   <set inverse="true" name="orders" sort="unsorted" table="orders">
    <key column="user_id"/>
    <one-to-many class="Order"/>

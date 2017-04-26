@@ -1,10 +1,11 @@
 package app.store.model.entity;
 
 public class Product extends Entity {
-
+    
 	private String name;
 	private float price;
 	private String coverImageFile;
+	private int isDel;
 	private Category category;
 	
 	public Product(){
@@ -17,6 +18,12 @@ public class Product extends Entity {
 		this.setCoverImageFile(imageFile);
 	}
 	
+	public int getIsDel() {
+		return isDel;
+	}
+	public void setIsDel(int isDel) {
+		this.isDel = isDel;
+	}
 	public String getName() {
 		return name;
 	}

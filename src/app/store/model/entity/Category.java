@@ -1,18 +1,27 @@
 package app.store.model.entity;
 
 public class Category extends Entity {
-	
+
 	private String name;
 	private String description;
+	private int isDel;
 
 	public Category() {
 		super(0);
 	}
-	
-	public Category(String name, String description){
+
+	public Category(String name, String description) {
 		this();
 		this.setName(name);
 		this.setDescription(description);
+	}
+
+	public int getIsDel() {
+		return isDel;
+	}
+
+	public void setIsDel(int isDel) {
+		this.isDel = isDel;
 	}
 
 	public String getName() {

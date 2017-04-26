@@ -14,8 +14,17 @@ public class User extends Entity{
 	private Date birthday;
 	private int loginTimes;
 	private Date lastLoginDate;
+	private int isDel;
 	private Set<Order> orders;
 	
+	public int getIsDel() {
+		return isDel;
+	}
+
+	public void setIsDel(int isDel) {
+		this.isDel = isDel;
+	}
+
 	public User() {
 		super(0);
 		this.setOrders(new HashSet<Order>());

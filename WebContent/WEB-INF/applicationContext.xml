@@ -44,6 +44,10 @@
 	<bean id="productAction" class="app.store.action.ProductAction" scope="prototype">
 	  <property name="service" ref="productService"/>
 	</bean>
+	<bean id="productMangerAction" class="app.store.mangerAction.ProductAction" scope="prototype">
+	  <property name="service" ref="productService"/>
+	</bean>
+	
 	
 	<!-- 订单管理的Dao,Service -->
 	<bean id="orderDao" class="app.store.model.dao.OrderDaoHibernateImpl">
@@ -60,5 +64,6 @@
 	</bean>
 	
 
+	<bean id="myInterceptor" class="app.store.util.CheckLoginInterceptor"/>
 	
 </beans>

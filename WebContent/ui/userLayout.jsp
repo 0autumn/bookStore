@@ -1,4 +1,4 @@
-<%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
+ <%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
 <%
 	String path = request.getContextPath();
 	String basePath = request.getScheme() + "://"
@@ -49,36 +49,25 @@
 					<th data-options="field:'id',width:100">
 						id
 					</th>
-					<th data-options="field:'userName',width:100">
+					<th data-options="field:'name',width:100">
 						用户名
 					</th>
-					<th data-options="field:'nickName',width:100">
-						昵称
-					</th>
-					<th data-options="field:'passWord',width:100">
+				    <th data-options="field:'passWord',width:100">
 						密码
 					</th>
-					<th data-options="field:'sex',width:100">
+					<th data-options="field:'loginTimes',width:100">
 						性别
-					</th>
-					<th data-options="field:'email',width:100">
-						邮箱
-					</th>
-					<th data-options="field:'mobile',width:100">
-						手机电话
 					</th>
 					<th data-options="field:'type',width:100">
 						用户类型
 					</th>
-					<th data-options="field:'createTime',width:100, formatter:function(value, row, index){return formatDate(value);}">
+					<th data-options="field:'creationDate',width:100, formatter:function(value, row, index){return formatDate(value);}">
 						创建时间
 					</th>
-					<th data-options="field:'lastUpdateTime',width:100, formatter:function(value, row, index){return formatDate(value);}">
-						最后修改时间
+					<th data-options="field:'lastLoginDate',width:100, formatter:function(value, row, index){return formatDate(value);}">
+						最后登录时间
 					</th>
-					<th data-options="field:'isDel',width:100">
-						是否停用
-					</th>
+					
 				</tr>
 			</thead>
 		</table>
