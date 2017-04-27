@@ -42,7 +42,7 @@ public class ShoppingAction extends GenericActionSupport<Order, OrderService>{
 	}
 
 	public String addToCart() throws Exception {
-	
+	System.out.println();
 		Product book = productService.getBook(this.getBookId()[0]);
 		Map<String, Object> session = ActionContext.getContext().getSession();
 		ShoppingCart cart = (ShoppingCart) session.get("cart");

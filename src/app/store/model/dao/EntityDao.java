@@ -49,6 +49,8 @@ public interface EntityDao<TEntity> {
 	 * @return the List of entities specialized by the property
 	 */
 	List<TEntity> findBy(String propertyName, Object propertyValue);
+
+	
 	
 	
 }

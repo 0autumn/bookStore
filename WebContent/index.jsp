@@ -8,7 +8,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <link type="text/css" rel="stylesheet" href="styles/style.css"/>
-<title>叮当网上书店</title>
+<title>叮当网上商城</title>
 </head>
 <body>
   <s:include value="/WEB-INF/view/header.jsp"/>

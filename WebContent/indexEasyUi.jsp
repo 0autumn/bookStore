@@ -35,11 +35,11 @@
 					<c:if test="${!empty sessionScope.manger}">
 					
 					<img alt="" src="img/head.jpg" width="130px;">
-					  <div align="center"><a href="/easyBuy/manger/user/mangerLogout"><span style="color: red">${sessionScope.manger.nickName}</span>注销/退出登录</a></div>
+					  <div align="center"><a href="/Store/manger/user/mangerLogout"><span style="color: red">${sessionScope.manger.nickName}</span>注销/退出登录</a></div>
 					 
 					</c:if>
 					<c:if test="${empty sessionScope.manger}">
-					 <div align="center"><a href="/easyBuy/manger/user/mangerLogin">请登录</a>  </div>
+					 <div align="center"><a href="/Store/manger/user/mangerLogin">请登录</a>  </div>
 					</c:if>
 					<div align="center" id="showDate"></div>
 				</div>
@@ -132,7 +132,7 @@
             } else {  
                 var content = "";
                 if(noteText=="用户信息管理"){
-                	content = '<iframe scrolling="auto" frameborder="0"  src="/easyBuy/ui/userLayout.jsp" style="width:100%;height:100%;"></iframe>';
+                	content = '<iframe scrolling="auto" frameborder="0"  src="/Store/ui/userLayout.jsp" style="width:100%;height:100%;"></iframe>';
                 }else if(noteText=='新闻表管理'){
                 	content = '<iframe scrolling="auto" frameborder="0"  src="/easyBuy/ui/news.jsp" style="width:100%;height:100%;"></iframe>';
                 }else if(noteText=='央行后台管理'){

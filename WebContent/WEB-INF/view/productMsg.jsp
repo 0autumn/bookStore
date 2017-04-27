@@ -34,8 +34,8 @@ $(function(){
       <div align="center">尺码</div>
      <div align="center">颜色分类</div>
      <div align="center">数量 库存19件</div>
-      <div align="right"><a class="button button-blue" href="addToCart.action?bookId=<s:property value="id"/>&quantity=1"> 
-		添加到购物车
+      <div align="right"><a class="button button-blue" href="addToCart.action?bookId=<s:property value="productId"/>&quantity=1"> 
+		添加到购物车<s:property value="id"/>
 	  </a></div>
     </div>
     
