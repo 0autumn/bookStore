@@ -12,6 +12,9 @@
 	    <td>
 	      <input type="hidden" name="bookId" value="<s:property value="book.id"/>"/>
 	      <s:property value="book.name"/>
+	       <s:iterator value="productValues">
+	           <s:property value="spec.spec_name"/>:<s:property value="specinfo.spec_value"/>
+	       </s:iterator>
 	    </td>
 	    
 	    <td>
@@ -29,7 +32,7 @@
 	      <a href="updateCart.action?bookId=<s:property value="book.id"/>&quantity=<s:property value="quantity+1"/>">[+]</a>
 	    </td>
 	    <td>
-	      <a href="removeFromCart.action">[删除]</a>
+	      <a href="removeFromCart.action?bookId=<s:property value="book.id"/>">[删除]</a>
 	    </td>
       </tr>
     </s:iterator>

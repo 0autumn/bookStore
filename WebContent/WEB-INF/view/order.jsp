@@ -11,21 +11,19 @@
      <label>订单日期：</label><s:date format="yyyy-MM-dd HH:mm:ss" name="model.creationDate"/>
   </caption>
     <tr><th>商品</th><th>单价</th><th>数量</th><th>价格</th></tr>
-  <c:forEach var="var" items="${listOred}">
+  
     <tr>
       <td>
-      <img class="book small" alt="" src="images/${ var.product.book.coverImageFile}"/>
-       <strong> ${ var.product.book.name}</strong> 
-       <c:forEach var="vas" items="${var.value}">
-	        ${vas.specName }:${vas.specValue}
-	    </c:forEach>
+      <img class="book small" alt="" src="images/tt.png"/>
+       <strong></strong> 
+       
       </td>
    
-        <td>${var.product.book.price}</td>
-         <td>${ var.product.quantity}</td>
-       <td>${ var.product.quantity*var.product.book.price}</td>
+        <td></td>
+         <td></td>
+       <td></td>
  
     </tr>
-  </c:forEach>
+
 </table>
 <p class="action-bar"><a class="button" href="index.jsp">返回首页</a></p>

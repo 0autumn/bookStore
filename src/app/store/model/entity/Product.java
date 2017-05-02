@@ -9,6 +9,7 @@ public class Product extends Entity {
 	private int isDel;
 	private int stock;
 	private Category category;
+	private Spec spec;
 	
 	public Product(){
 		super(0);
@@ -22,6 +23,12 @@ public class Product extends Entity {
 		this.setStock(stock);
 	}
 	
+	public Spec getSpec() {
+		return spec;
+	}
+	public void setSpec(Spec spec) {
+		this.spec = spec;
+	}
 	public String getTitle() {
 		return title;
 	}

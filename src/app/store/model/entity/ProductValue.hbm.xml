@@ -8,7 +8,10 @@
   </id>
   <property column="creation_date" generated="never" lazy="false"
    name="creationDate" not-null="true"/>
-   <many-to-one cascade="all" class="SpecInfo"  unique="true" column="specinfo_id"  name="specinfo" not-null="true"/>
-   <many-to-one cascade="all" class="Spec"  unique="true" column="spec_id"  name="spec" not-null="true"/>
+   <many-to-one cascade="all" class="SpecInfo"  column="specinfo_id"  name="specinfo" not-null="true"/>
+   <many-to-one cascade="all" class="Spec"  column="spec_id"  name="spec" not-null="true"/>
+
+   <many-to-one name="orderItem"   class="OrderItem" column="orderItem_id" not-null="true" cascade="all" />
+ 
  </class>
 </hibernate-mapping>

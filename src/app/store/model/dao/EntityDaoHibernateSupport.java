@@ -34,7 +34,7 @@ public abstract class EntityDaoHibernateSupport<TEntity> implements EntityDao<TE
 	@SuppressWarnings("unchecked")
 	@Override
 	public TEntity get(long id) {
-		Session session = this.getSession();
+		Session session = getSession();
 		session.beginTransaction();
 		TEntity entity = (TEntity)session.get(entityClass, id);
 		session.getTransaction().commit();
@@ -54,7 +54,7 @@ public abstract class EntityDaoHibernateSupport<TEntity> implements EntityDao<TE
 
 	@Override
 	public void save(TEntity entity) {
-		Session session = this.getSession();
+		Session session =getSession();
 		session.beginTransaction();
 		session.saveOrUpdate(entity);
 		session.getTransaction().commit();
@@ -69,7 +69,7 @@ public abstract class EntityDaoHibernateSupport<TEntity> implements EntityDao<TE
 
 	@Override
 	public void delete(TEntity entity) {
-		Session session = this.getSession();
+		Session session =getSession();
 		session.beginTransaction();
 		session.delete(entity);
 		session.getTransaction().commit();
@@ -79,7 +79,7 @@ public abstract class EntityDaoHibernateSupport<TEntity> implements EntityDao<TE
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<TEntity> findAll() {
-		List<TEntity> entities = this.getSession().createQuery("from " + entityClass.getSimpleName()).list();
+		List<TEntity> entities = getSession().createQuery("from " + entityClass.getSimpleName()).list();
 		return entities;
 	}
 
@@ -88,8 +88,10 @@ public abstract class EntityDaoHibernateSupport<TEntity> implements EntityDao<TE
 	public List<TEntity> findBy(String propertyName, Object propertyValue) {
 		String queryString = "from " + entityClass.getSimpleName() + " e ";
 		queryString += "where e." + propertyName + "=:propertyValue";
-		Query query = this.getSession().createQuery(queryString);
+		 System.out.println(queryString);
+		Query query = getSession().createQuery(queryString);
 		List<TEntity> entities = query.setParameter("propertyValue", propertyValue).list();
+		
 	return entities;
 	}
 }

@@ -7,13 +7,29 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import app.store.model.dao.ProductValueDaoHibenateImpl;
+import app.store.model.dao.SpecInfoDaoHibernateImpl;
 import app.store.model.entity.Product;
 import app.store.model.entity.OrderItem;
+import app.store.model.entity.ProductValue;
+import app.store.model.entity.SpecInfo;
 
 public class ShoppingCart {
-
+    private	SpecInfoDaoHibernateImpl sih;
 	protected Map<Long,OrderItem> items;
 	
+
+
+	public SpecInfoDaoHibernateImpl getSih() {
+		return sih;
+	}
+
+
+	public void setSih(SpecInfoDaoHibernateImpl sih) {
+		this.sih = sih;
+	}
+
+
 	public ShoppingCart() {
 		if (items == null) {
 			items = new HashMap<Long, OrderItem>();
@@ -21,7 +37,7 @@ public class ShoppingCart {
 	}
 	
 	
-	public void addBook(Product book, int quantity) {
+	public void addBook(Product book, int quantity,long[] valueId ) {
 		if (quantity <= 0) return;
 	
 		if (items.containsKey(book.getId())){
@@ -32,7 +48,8 @@ public class ShoppingCart {
 			OrderItem newItem = new OrderItem();
 			newItem.setBook(book);
 			newItem.setQuantity(quantity);
-			items.put(book.getId(), newItem);
+			newItem.setProductValues(getAttri(valueId,newItem));
+		items.put(book.getId(), newItem);
 		}
 	}
 	
@@ -81,5 +98,19 @@ public class ShoppingCart {
 		
 		
 	}
-	
+	public Set<ProductValue> getAttri(long[] valueId,OrderItem orderItem){
+		Set<ProductValue> set=new HashSet<ProductValue>();
+		SpecInfoDaoHibernateImpl sih=new SpecInfoDaoHibernateImpl();
+		for (int i = 0; i < valueId.length; i++) {
+			ProductValue pv=new ProductValue();
+		    SpecInfo sif=sih.findBy("id",valueId[i]).get(0);
+			pv.setSpecinfo(sif);
+			pv.setSpec(sif.getSpec());
+			System.out.println(sif.getSpec().getSpec_name()+"-1111111111111-");
+			pv.setOrderItem(orderItem);
+			set.add(pv);
+		}
+		return set;
+		
+	}
 }

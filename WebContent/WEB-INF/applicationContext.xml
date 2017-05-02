@@ -65,6 +65,7 @@
 	  <property name="specSevice" ref="specService"/>
 	    <property name="productValueService" ref="productValueService"/>
 	  <property name="service" ref="orderService"/>
+	 
 	  
 	</bean>
 	
@@ -83,6 +84,14 @@
           <property name="dao" ref="productValueDao"/>
       </bean>
 	
+	<!-- SpecInfo -->
+	<!--  <bean id="SpecInfoDao" class="app.store.model.dao.SpecInfoDaoHibernateImpl">
+	      <property name="sessionFactory" ref="sessionFactory"/>
+	 </bean>
+	  <bean  class="app.store.model.service.ShoppingCart">
+          <property name="sih" ref="SpecInfoDao"/>
+      </bean>
+	 -->
 	<bean id="myInterceptor" class="app.store.util.CheckLoginInterceptor"/>
 	
 </beans>
