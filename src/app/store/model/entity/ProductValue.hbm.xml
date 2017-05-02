@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="app.store.model.entity">
+ <class name="ProductValue" table="productValue">
+    <id name="id" type="long">
+   <generator class="native"/>
+  </id>
+  <property column="creation_date" generated="never" lazy="false"
+   name="creationDate" not-null="true"/>
+   <many-to-one cascade="all" class="SpecInfo"  unique="true" column="specinfo_id"  name="specinfo" not-null="true"/>
+   <many-to-one cascade="all" class="Spec"  unique="true" column="spec_id"  name="spec" not-null="true"/>
+ </class>
+</hibernate-mapping>
