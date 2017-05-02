@@ -12,6 +12,9 @@
 	    <td>
 	      <input type="hidden" name="bookId" value="<s:property value="book.id"/>"/>
 	      <s:property value="book.name"/>
+	       <s:iterator value="productValues">
+	           <s:property value="spec.spec_name"/>:<s:property value="specinfo.spec_value"/>
+	       </s:iterator>
 	    </td>
 	    
 	    <td>

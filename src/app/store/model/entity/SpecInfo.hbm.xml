@@ -10,5 +10,6 @@
    name="creationDate" not-null="true"/>
     <property generated="never" lazy="false" length="100" name="spec_value" not-null="true"/>
    <many-to-one cascade="all" class="Spec" column="spec_id" name="spec" not-null="true"/>
+   
 </class>
 </hibernate-mapping>

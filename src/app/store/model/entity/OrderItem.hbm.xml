@@ -13,5 +13,9 @@
   <many-to-one class="Product" column="book_id" name="book" not-null="true"/>
   <many-to-one cascade="all" class="Order" column="order_id"
    name="order" not-null="true"/>
+   <set cascade="all" inverse="true" name="productValues" sort="unsorted" table="productValue">
+   <key column="orderItem_id"/>
+   <one-to-many class="ProductValue"/>
+   </set>
  </class>
 </hibernate-mapping>

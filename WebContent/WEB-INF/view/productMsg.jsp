@@ -50,8 +50,10 @@ $(function(){
      <div align="center">${productMsg.poduct.name}</div>
       <div align="center">${productMsg.poduct.title} </div>
       <div align="center">价格：¥ ${productMsg.poduct.price} </div>
+        <form action="addToCart.action?bookId=<s:property value="productId"/>&quantity=1" method="post">
       <c:forEach var="var" items="${productMsg.spec}" varStatus="syu">
       <div align="center">${var.specName.spec_name }
+    
          <c:forEach var="var" items="${var.specValue}" varStatus="status">
             <input class="num"  type="hidden" value="${syu.count}">
             <c:if test="${status.count==1 }">
@@ -61,13 +63,16 @@ $(function(){
             <input class="select" type="checkbox" name="id"  value="${var.id}" /><span>${var.spec_value}</span>
          </c:if>
          </c:forEach>
-      
+    
       </div>
       </c:forEach> 
+       
       <div align="center">数量 库存${productMsg.poduct.stock}件</div>
-      <div align="right"><a class="button button-blue" href="addToCart.action?bookId=<s:property value="productId"/>&quantity=1"> 
-		添加到购物车<s:property value="id"/>
-	  </a></div>
+      <div align="right">
+		<input type="submit" value="添加到购物车" />
+		<!-- <a class="button button-blue" > </a> -->
+	  </div>
+	   </form>
     </div>
     
 

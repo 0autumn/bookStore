@@ -88,8 +88,10 @@ public abstract class EntityDaoHibernateSupport<TEntity> implements EntityDao<TE
 	public List<TEntity> findBy(String propertyName, Object propertyValue) {
 		String queryString = "from " + entityClass.getSimpleName() + " e ";
 		queryString += "where e." + propertyName + "=:propertyValue";
-		Query query = this.getSession().createQuery(queryString);
+		 Session session= this.getSession();
+		Query query = session.createQuery(queryString);
 		List<TEntity> entities = query.setParameter("propertyValue", propertyValue).list();
+		
 	return entities;
 	}
 }

@@ -83,6 +83,10 @@
           <property name="dao" ref="productValueDao"/>
       </bean>
 	
+	<!--  <bean id="shoppingCart" class="app.store.model.service.ShoppingCart">
+          <property name="pvdh" ref="productValueDao"/>
+      </bean> -->
+	
 	<bean id="myInterceptor" class="app.store.util.CheckLoginInterceptor"/>
 	
 </beans>

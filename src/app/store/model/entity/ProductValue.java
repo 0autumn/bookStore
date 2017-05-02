@@ -12,6 +12,14 @@ public class ProductValue extends Entity{
 	}
     SpecInfo specinfo;
     Spec  spec;
+    OrderItem orderItem;
+    
+	public OrderItem getOrderItem() {
+		return orderItem;
+	}
+	public void setOrderItem(OrderItem orderItem) {
+		this.orderItem = orderItem;
+	}
 	public SpecInfo getSpecinfo() {
 		return specinfo;
 	}

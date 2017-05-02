@@ -25,14 +25,18 @@ public class ShoppingAction extends GenericActionSupport<Order, OrderService>{
 	
 	private long[] bookId;
 	private int[] quantity;
+	private long[] id;
 	private ProductService productService;
 	private ProductValueServiceImpl productValueService;
 	private SpecServiceImpl specSevice;
-    private List<Object> listOred;
+   /* private List<Object> listOred;*/
     
 	
 
-	public List<Object> getListOred() {
+
+
+
+/*	public List<Object> getListOred() {
 		return listOred;
 	}
 
@@ -40,11 +44,24 @@ public class ShoppingAction extends GenericActionSupport<Order, OrderService>{
 	public void setListOred(List<Object> listOred) {
 		this.listOred = listOred;
 	}
-
+*/
 
 	public ProductService getProductService() {
 		return productService;
 	}
+
+
+
+	public long[] getId() {
+		return id;
+	}
+
+
+
+	public void setId(long[] id) {
+		this.id = id;
+	}
+
 
 
 	public SpecServiceImpl getSpecSevice() {
@@ -89,14 +106,16 @@ public class ShoppingAction extends GenericActionSupport<Order, OrderService>{
 	    	
 	   
 	public String addToCart() throws Exception {
-	System.out.println();
+	    for (int i = 0; i < id.length; i++) {
+			System.out.println(id[i]+"--------------");
+		}
 		Product book = productService.getBook(this.getBookId()[0]);
 		Map<String, Object> session = ActionContext.getContext().getSession();
 		ShoppingCart cart = (ShoppingCart) session.get("cart");
 		if (cart == null) {
 			cart = new ShoppingCart();
 		}
-		cart.addBook(book, this.getQuantity()[0]);
+		cart.addBook(book, this.getQuantity()[0],id);
 		session.put("cart", cart);
 		return SUCCESS;
 	}
@@ -134,14 +153,14 @@ public class ShoppingAction extends GenericActionSupport<Order, OrderService>{
 		ShoppingCart cart = (ShoppingCart) session.get("cart");
 		
 		if (user == null) {
-			this.addActionMessage("Äã»¹Ã»ÓÐµÇÂ½0.0");
+			this.addActionMessage("æœªç™»å½•");
 			return INPUT;
 		}
 		if (cart == null) {
-			this.addActionError("¹ºÎï³µÎª¿Õ");
+			this.addActionError("è´­ç‰©è½¦ä¸ºç©º");
 			return ERROR;
 		}
-		  List<Object> list0=new ArrayList<>();
+		/*  List<Object> list0=new ArrayList<>();
 	    List<Long> list1=new ArrayList<>();
 	  
 	    List<Object> order=new ArrayList<>();
@@ -168,7 +187,7 @@ public class ShoppingAction extends GenericActionSupport<Order, OrderService>{
     	    list0.add(ordeJsp);
 		}
 	  
-		this.setListOred(list0);
+		this.setListOred(list0);*/
 		doCheckout(user, cart);
 		session.remove("cart");
 		return SUCCESS;
