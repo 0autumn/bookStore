@@ -14,8 +14,8 @@
 	  </s:else>
 	  <p>商品名:<strong><s:property value="name"/></strong></p>
 	  <p>价格:<strong><s:property value="price"/></strong></p>
-	  <a class="button button-blue" href="addToCart.action?bookId=<s:property value="id"/>&quantity=1"> 
-		添加到购物车
+	  <a class="button button-blue" href="productMsg?productId=<s:property value="id"/>"> 
+		 点击查看
 	  </a>
 	</li>
   </s:iterator>

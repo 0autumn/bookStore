@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="s" uri="/struts-tags"%>
+ <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <h2>订单列表</h2>
 <s:if test="#session.user.orders.size>0">
   <s:iterator value="#session.user.orders">
@@ -10,7 +11,7 @@
 	    <label>合计：</label><em class="price"><s:property value="totalPrice"/></em>
 	    <label>订单日期：</label><em class="date"><s:date format="yyyy-MM-dd HH:mm:ss" name="creationDate"/></em>
   </caption>
-  <tr><th>图书</th><th>单价</th><th>数量</th></tr>
+  <tr><th>商品</th><th>单价</th><th>数量</th></tr>
     <s:iterator value="orderItems">
     <tr>
 	  <td>

@@ -1,13 +1,19 @@
 package app.store.model.service;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
+import app.store.model.dao.SpecDaoHibernateImpl;
 import app.store.model.entity.Product;
+import app.store.model.entity.Spec;
 
 public class ProductServiceImpl extends ServiceSupport<Product> implements
 		ProductService {
-
+  
 	@Override
 	public Product getBook(long id) {
 		return this.getDao().get(id);
@@ -49,7 +55,7 @@ public class ProductServiceImpl extends ServiceSupport<Product> implements
 			if (book.getName().contains(keyword) || 
 				book.getCategory().getName().contains(keyword) || 
 				book.getCategory().getDescription().contains(keyword)) {
-				   if(num>srart)
+				   if(num>=srart)
 				       resultBooks.add(book);
 			}
 			num++;
@@ -57,6 +63,11 @@ public class ProductServiceImpl extends ServiceSupport<Product> implements
 				break;
 		}
 		return resultBooks;
+	}
+
+	@Override
+	public Product getProductMsg(long id) {
+		return this.getDao().findBy("id",id).get(0);
 	}
 
 }

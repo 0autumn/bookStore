@@ -15,6 +15,7 @@ public class User extends Entity{
 	private int loginTimes;
 	private Date lastLoginDate;
 	private int isDel;
+	private int type;
 	private Set<Order> orders;
 	
 	public int getIsDel() {
@@ -41,6 +42,14 @@ public class User extends Entity{
 		this.setBirthday(birthday);
 	}
 	
+	public int getType() {
+		return type;
+	}
+
+	public void setType(int type) {
+		this.type = type;
+	}
+
 	public String getLoginId() {
 		return loginId;
 	}
