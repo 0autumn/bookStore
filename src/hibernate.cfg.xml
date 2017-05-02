@@ -27,5 +27,9 @@
   <mapping resource="app/store/model/entity/Category.hbm.xml"/>
   <mapping resource="app/store/model/entity/Product.hbm.xml"/>
   <mapping resource="app/store/model/entity/ProductImage.hbm.xml"/>
+  <mapping resource="app/store/model/entity/Spec.hbm.xml"/>
+  <mapping resource="app/store/model/entity/SpecInfo.hbm.xml"/>
+  <mapping resource="app/store/model/entity/UserMsg.hbm.xml"/>
+  <mapping resource="app/store/model/entity/ProductValue.hbm.xml"/>
 </session-factory>
 </hibernate-configuration>

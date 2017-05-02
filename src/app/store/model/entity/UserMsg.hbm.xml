@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="app.store.model.entity">
+ <class name="UserMsg" table="userMsg">
+  <id name="id" type="long">
+   <generator class="native"/>
+  </id>
+  <property column="creation_date" generated="never" lazy="false"
+   name="creationDate" not-null="true"/>
+  <property generated="never" lazy="false" length="100" name="realName" not-null="true"/>
+  <property generated="never" lazy="false" length="100" name="idCard" not-null="true"/>
+  <property generated="never" lazy="false" length="100" name="accountNumber" not-null="true"/>
+  <property generated="never" lazy="false" length="100" name="adress" not-null="true"/>
+ <many-to-one cascade="all" class="User"  unique="true" column="user_id"  name="user" not-null="true"/>
+ </class>
+</hibernate-mapping>                        

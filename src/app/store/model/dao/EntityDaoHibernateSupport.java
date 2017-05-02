@@ -44,7 +44,8 @@ public abstract class EntityDaoHibernateSupport<TEntity> implements EntityDao<TE
 
 	@Override
 	public TEntity getSingle(String propertyName, Object propertyValue) {
-		List<TEntity> entities = findBy(propertyName, propertyValue);
+		System.out.println(propertyName+"--"+propertyValue);
+		List<TEntity> entities = findBy(propertyName,propertyValue);
 		if (entities != null && entities.size() > 0) {
 			return entities.get(0);
 		}
@@ -89,6 +90,6 @@ public abstract class EntityDaoHibernateSupport<TEntity> implements EntityDao<TE
 		queryString += "where e." + propertyName + "=:propertyValue";
 		Query query = this.getSession().createQuery(queryString);
 		List<TEntity> entities = query.setParameter("propertyValue", propertyValue).list();
-		return entities;
+	return entities;
 	}
 }

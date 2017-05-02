@@ -1,9 +1,14 @@
 package app.store.action;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import app.store.model.entity.Product;
+import app.store.model.entity.ProductValue;
 import app.store.model.service.ProductService;
+import app.store.model.service.ProductValueServiceImpl;
+import app.store.model.service.SpecServiceImpl;
 
 public class ProductAction extends GenericActionSupport<Product, ProductService> {
 
@@ -12,7 +17,22 @@ public class ProductAction extends GenericActionSupport<Product, ProductService>
 	private long categoryId;
 	private String keyword;
     private Integer page;
-	
+	private SpecServiceImpl specSevice;
+	public Integer getPage() {
+		return page;
+	}
+
+	public void setPage(Integer page) {
+		this.page = page;
+	}
+
+	public SpecServiceImpl getSpecSevice() {
+		return specSevice;
+	}
+
+	public void setSpecSevice(SpecServiceImpl specSevice) {
+		this.specSevice = specSevice;
+	}
 
 	public int getProductId() {
 		return productId;
@@ -48,7 +68,14 @@ public class ProductAction extends GenericActionSupport<Product, ProductService>
 		}
 		return this.getService().getBooksByCategoryId(this.getCategoryId(),page,12);
 	}
-	
-	
+      //得到某个产品的具体数据	
+	public Map<String,Object> getProductMsg(){
+		Map<String,Object> map =new HashMap<>();
+		map.put("poduct",this.getService().getProductMsg(productId));
+		map.put("spec",this.specSevice.getSpecs(productId));
+		
+		return map;
+		
+	}
 	
 }

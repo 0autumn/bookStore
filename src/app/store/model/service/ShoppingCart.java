@@ -1,7 +1,9 @@
 package app.store.model.service;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
@@ -67,6 +69,17 @@ public class ShoppingCart {
 	
 	public void clear() {
 		items.clear();
+	}
+	
+	public List<Long> getPoductIds(){
+		List<Long> list=new ArrayList<>();
+		for (OrderItem item : items.values()){
+			Product book = item.getBook();
+			list.add(book.getId());
+		}
+		return list;
+		
+		
 	}
 	
 }

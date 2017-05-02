@@ -43,6 +43,8 @@
 	</bean>
 	<bean id="productAction" class="app.store.action.ProductAction" scope="prototype">
 	  <property name="service" ref="productService"/>
+	   <property name="specSevice" ref="specService"/>
+	    
 	</bean>
 	<bean id="productMangerAction" class="app.store.mangerAction.ProductAction" scope="prototype">
 	  <property name="service" ref="productService"/>
@@ -60,10 +62,27 @@
 	<!-- 购买与结算的Action -->
 	<bean id="shoppingAction" class="app.store.action.ShoppingAction" scope="prototype">
 	  <property name="productService" ref="productService"/>
+	  <property name="specSevice" ref="specService"/>
+	    <property name="productValueService" ref="productValueService"/>
 	  <property name="service" ref="orderService"/>
+	  
 	</bean>
 	
-
+      <!--商品属性的service  -->
+      <bean id="specDao" class="app.store.model.dao.SpecDaoHibernateImpl">
+         <property name="sessionFactory" ref="sessionFactory"/>
+      </bean>
+      <bean id="specService" class="app.store.model.service.SpecServiceImpl">
+          <property name="dao" ref="specDao"/>
+      </bean>
+	<!-- 订单商品属性  -->
+	    <bean id="productValueDao" class="app.store.model.dao.ProductValueDaoHibenateImpl">
+         <property name="sessionFactory" ref="sessionFactory"/>
+      </bean>
+      <bean id="productValueService" class="app.store.model.service.ProductValueServiceImpl">
+          <property name="dao" ref="productValueDao"/>
+      </bean>
+	
 	<bean id="myInterceptor" class="app.store.util.CheckLoginInterceptor"/>
 	
 </beans>

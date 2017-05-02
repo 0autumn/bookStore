@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%@ taglib prefix="s" uri="/struts-tags"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <script type="text/javascript" src="/Store/js/jquery-1.8.2.min.js"></script>
 <style type="text/css">
 #tip {position:absolute;color:#333;display:none;}
@@ -21,19 +22,49 @@ $(function(){
   }).mousemove(function(e){
    $('#tip').css({"top":(e.pageY-60)+"px","left":(e.pageX+30)+"px"});
   });
+  
+  $('.select').click(function(){
+	  var myClick=$('.select').index($(this));
+	  var array=document.getElementsByName("id");
+	  var num=$('.num').eq(myClick).val();
+	  $('.num').each(function(i,element){
+		   if($('.num').eq(i).val()==num){
+			   array[i].checked = false;
+		   }
+		
+	  });
+	  array[myClick].checked=true;
+	  
+  });
+	  
+	  
+  
 });
+ 
 </script>
 <p> </p>
 <div align="left"> 
 
     <div style="display:inline-block"><img class="tip" src="/Store/images/tm3.jpg" /></div>
     <div style="display:inline-block">
-      <div align="center">法国LAFUMA乐飞叶女士户外防风防泼水中长登山冲锋衣LFJ06AC71</div>
-      <div align="center">¥ 1539.00 </div>
+     <div align="center">${productMsg.poduct.name}</div>
+      <div align="center">${productMsg.poduct.title} </div>
+      <div align="center">价格：¥ ${productMsg.poduct.price} </div>
+      <c:forEach var="var" items="${productMsg.spec}" varStatus="syu">
+      <div align="center">${var.specName.spec_name }
+         <c:forEach var="var" items="${var.specValue}" varStatus="status">
+            <input class="num"  type="hidden" value="${syu.count}">
+            <c:if test="${status.count==1 }">
+            <input class="select" type="checkbox" name="id"  value="${var.id}" checked="checked"/><span>${var.spec_value}</span>
+         </c:if>
+          <c:if test="${status.count!=1 }">
+            <input class="select" type="checkbox" name="id"  value="${var.id}" /><span>${var.spec_value}</span>
+         </c:if>
+         </c:forEach>
       
-      <div align="center">尺码</div>
-     <div align="center">颜色分类</div>
-     <div align="center">数量 库存19件</div>
+      </div>
+      </c:forEach> 
+      <div align="center">数量 库存${productMsg.poduct.stock}件</div>
       <div align="right"><a class="button button-blue" href="addToCart.action?bookId=<s:property value="productId"/>&quantity=1"> 
 		添加到购物车<s:property value="id"/>
 	  </a></div>

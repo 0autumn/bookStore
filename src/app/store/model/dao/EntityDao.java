@@ -2,6 +2,7 @@ package app.store.model.dao;
 
 import java.util.List;
 
+
 public interface EntityDao<TEntity> {
 
 	/**
@@ -50,6 +51,7 @@ public interface EntityDao<TEntity> {
 	 */
 	List<TEntity> findBy(String propertyName, Object propertyValue);
 
+	
 	
 	
 	

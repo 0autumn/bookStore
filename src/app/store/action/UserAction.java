@@ -11,7 +11,7 @@ public class UserAction extends GenericActionSupport<User, UserService> {
 
 	private static final long serialVersionUID = 1L;
 
-	//登录
+	//
 	public String login() throws Exception {
 		String loginId = this.getModel().getLoginId();
 		String password = this.getModel().getPassword();
@@ -21,10 +21,10 @@ public class UserAction extends GenericActionSupport<User, UserService> {
 			session.put("user", user);
 			return SUCCESS;
 		}
-		this.addActionError("登录错误");
+		this.addActionError("��½ʧ��");
 		return INPUT;
 	}
-	//注册
+	//
 	public String register() throws Exception {
 		try {
 			this.getService().saveUser(this.getModel());
@@ -35,7 +35,7 @@ public class UserAction extends GenericActionSupport<User, UserService> {
 		}
 		return SUCCESS;
 	}
-	//注销
+	//
 	public String logout() throws Exception {
 		
 		ActionContext.getContext().getSession().clear();
